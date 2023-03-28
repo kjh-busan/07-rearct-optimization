@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="app">
       <h1>Hi there!</h1>
-      <DemoOutput title={listTitle} item={[5, 3, 1, 10, 9]} />
+      <DemoOutput title={listTitle} items={[5, 3, 1, 10, 9]} />
       <Button onClick={changeTitleHandler}>Toggle Button</Button>
     </div>
   );
