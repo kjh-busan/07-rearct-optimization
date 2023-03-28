@@ -1,11 +1,7 @@
 const MyParagraph = (props) => {
   console.log("My Paragraph");
 
-  return (
-    <p>
-      {props.children} {props.hello}
-    </p>
-  );
+  return <p>{props.children}</p>;
 };
 
 export default MyParagraph;

@@ -4,27 +4,19 @@ import DemoOutput from "./components/UI/Button/DEMO/DemoOutput";
 import "./App.css";
 
 function App() {
-  const [showParagraph, setShowParagraph] = useState(false);
-  const [AllowToggle, setAllowToggle] = useState(false);
+  const [listTitle, SetListTitle] = useState("My List");
+  console.log("APP is RUNNING");
 
-  console.log("App is Running");
-
-  const toggleShowHandler = useCallback(() => {
-    if (AllowToggle) {
-      setShowParagraph((prevShowParagraph) => !prevShowParagraph);
-    }
-  }, [AllowToggle]);
-
-  const AllowToggleHandler = () => {
-    setAllowToggle(true);
-  };
+  const changeTitleHandler = useCallback(() => {
+    console.log("changeTitleHandler RUNNING");
+    SetListTitle("New Title");
+  }, []);
 
   return (
     <div className="app">
       <h1>Hi there!</h1>
-      <DemoOutput show={showParagraph} />
-      <Button onClick={AllowToggleHandler}>AllowToggle Button</Button>
-      <Button onClick={toggleShowHandler}>Toggle Button</Button>
+      <DemoOutput title={listTitle} item={[5, 3, 1, 10, 9]} />
+      <Button onClick={changeTitleHandler}>Toggle Button</Button>
     </div>
   );
 }
