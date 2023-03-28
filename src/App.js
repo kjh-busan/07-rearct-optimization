@@ -1,22 +1,22 @@
-import React, { useState, useCallback } from "react";
-import Button from "./components/UI/Button/Button";
-import DemoOutput from "./components/UI/Button/DEMO/DemoOutput";
+import React, { useState, useCallback, useMemo } from "react";
+
 import "./App.css";
+import DemoOutput from "./components/DEMO/DemoOutput";
+import Button from "./components/UI/Button/Button";
 
 function App() {
-  const [listTitle, SetListTitle] = useState("My List");
-  console.log("APP is RUNNING");
+  const [listTitle, setListTitle] = useState("My List");
 
   const changeTitleHandler = useCallback(() => {
-    console.log("changeTitleHandler RUNNING");
-    SetListTitle("New Title");
+    setListTitle("New Title");
   }, []);
+
+  const listItems = useMemo(() => [5, 3, 1, 10, 9], []);
 
   return (
     <div className="app">
-      <h1>Hi there!</h1>
-      <DemoOutput title={listTitle} items={[5, 3, 1, 10, 9]} />
-      <Button onClick={changeTitleHandler}>Toggle Button</Button>
+      <DemoOutput title={listTitle} items={listItems} />
+      <Button onClick={changeTitleHandler}>Change List Title</Button>
     </div>
   );
 }
